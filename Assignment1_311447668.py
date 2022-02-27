@@ -23,7 +23,7 @@ def my_func(x1,x2,x3):
 
 # B. 
 
-def convert(hours, minutes):
+def convert(hours, minutes=0):
     s = 60
     if hours < 0 or minutes < 0:
         return "Input error!"
