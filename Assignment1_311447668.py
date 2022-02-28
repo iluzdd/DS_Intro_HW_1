@@ -23,15 +23,19 @@ def my_func(x1,x2,x3):
 
 # B. 
 
-def convert(hours, minutes=0):
+def convert(hours, minutes=None):
     s = 60
-    if hours < 0 or minutes < 0:
-        return "Input error!"
-    if isinstance(hours,float) and minutes == 0:
-        seconds = hours*s*s
-        return seconds
-    elif isinstance(hours,int) and isinstance(minutes,int):
-        seconds = hours*s*s + minutes*60
-        return seconds
-    else: 
-        return "This function only supports the following: (int,int) or (float)"
+    if isinstance(hours,int) and minutes != None:
+        if hours < 0 or minutes < 0:
+            return "Input error!"
+        else: 
+            seconds = hours*s*s + minutes*60
+            return seconds
+    elif isinstance(hours,float) and minutes == None:
+        if hours < 0:
+            return "Input error!"
+        else: 
+            seconds = hours*s*s
+            return seconds
+    else:
+        return "This function only supports the following: (int,int) or (float) all positive"
