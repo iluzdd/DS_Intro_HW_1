@@ -24,9 +24,14 @@ def my_func(x1,x2,x3):
 # B. 
 
 def convert(hours, minutes=0):
-    s = 60 
+    s = 60
     if hours < 0 or minutes < 0:
         return "Input error!"
+    if isinstance(hours,float) and minutes == 0:
+        seconds = hours*s*s
+        return seconds
+    elif isinstance(hours,int) and isinstance(minutes,int):
+        seconds = hours*s*s + minutes*60
+        return seconds
     else: 
-        seconds = hours*s*s + minutes*s
-    return seconds
+        return "This function only supports the following: (int,int) or (float)"
